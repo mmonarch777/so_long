@@ -6,7 +6,7 @@
 /*   By: mmonarch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 12:26:28 by mmonarch          #+#    #+#             */
-/*   Updated: 2021/10/07 12:26:37 by mmonarch         ###   ########.fr       */
+/*   Updated: 2021/10/07 14:01:08 by mmonarch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,22 @@ static void	ft_check_map(t_ber *ber)
 	}
 }
 
+static void	ft_pars(int *x, int *y, t_ber *ber)
+{
+	if (!ft_strchr("01CEP", ber->map[*y][*x]))
+		error("The card has extraneous symbols");
+	if (ber->map[*y][*x] == 'P')
+	{
+		ber->P++;
+		ber->P_y = *y;
+		ber->P_x = *x;
+	}
+	if (ber->map[*y][*x] == 'C')
+		ber->C++;
+	if (ber->map[*y][*x] == 'E')
+		ber->E++;
+}
+
 static void	ft_parsing_map(t_ber *ber)
 {
 	int	x;
@@ -65,18 +81,7 @@ static void	ft_parsing_map(t_ber *ber)
 		x = -1;
 		while (ber->map[y][++x])
 		{
-			if (!ft_strchr("01CEP", ber->map[y][x]))
-				error("The card has extraneous symbols");
-			if (ber->map[y][x] == 'P')
-			{
-				ber->P++;
-				ber->P_y = y;
-				ber->P_x = x;
-			}
-			if (ber->map[y][x] == 'C')
-				ber->C++;
-			if (ber->map[y][x] == 'E')
-				ber->E++;
+			ft_pars(&x, &y, ber);
 		}
 	}
 	if (ber->P != 1 || ber->E != 1 || ber->C < 1)

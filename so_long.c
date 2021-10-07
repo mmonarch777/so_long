@@ -6,7 +6,7 @@
 /*   By: mmonarch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 12:27:22 by mmonarch          #+#    #+#             */
-/*   Updated: 2021/10/07 12:27:33 by mmonarch         ###   ########.fr       */
+/*   Updated: 2021/10/07 18:15:15 by mmonarch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,11 +59,11 @@ static void	ft_init_struct(t_ber *ber)
 {
 	ber->height = 0;
 	ber->width = 0;
-	ber->C = 0;
-	ber->E = 0;
-	ber->P = 0;
-	ber->P_x = 0;
-	ber->P_y = 0;
+	ber->c = 0;
+	ber->e = 0;
+	ber->p = 0;
+	ber->p_x = 0;
+	ber->p_y = 0;
 	ber->moove = 0;
 }
 
@@ -102,8 +102,9 @@ int	main(int argc, char **argv)
 			ber.width * 64, ber.height * 64, "so_long");
 	ft_add_image(&ber);
 	mlx_key_hook(ber.mlx.mlx_win, ft_hook, &ber);
+	mlx_hook(ber.mlx.mlx_win, 17, 0, ft_close, &ber);
 	mlx_string_put(ber.mlx.mlx, ber.mlx.mlx_win, 27, 37,
-		   0x0000000f, "0");
+		0x0000000f, "0");
 	printf("Movements done %s\n", "0");
 	mlx_loop(ber.mlx.mlx);
 }

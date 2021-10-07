@@ -60,14 +60,14 @@ static void	ft_pars(int *x, int *y, t_ber *ber)
 		error("The card has extraneous symbols");
 	if (ber->map[*y][*x] == 'P')
 	{
-		ber->P++;
-		ber->P_y = *y;
-		ber->P_x = *x;
+		ber->p++;
+		ber->p_y = *y;
+		ber->p_x = *x;
 	}
 	if (ber->map[*y][*x] == 'C')
-		ber->C++;
+		ber->c++;
 	if (ber->map[*y][*x] == 'E')
-		ber->E++;
+		ber->e++;
 }
 
 static void	ft_parsing_map(t_ber *ber)
@@ -84,7 +84,7 @@ static void	ft_parsing_map(t_ber *ber)
 			ft_pars(&x, &y, ber);
 		}
 	}
-	if (ber->P != 1 || ber->E != 1 || ber->C < 1)
+	if (ber->p != 1 || ber->e != 1 || ber->c < 1)
 		error("The map must have 1 player, 1 exit and at least 1 collectible");
 }
 

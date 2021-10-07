@@ -20,25 +20,25 @@ static void	ft_win(char *str)
 
 void	ft_moove_w(t_ber *ber)
 {
-	if (ber->map[ber->P_y - 1][ber->P_x] != '1')
+	if (ber->map[ber->p_y - 1][ber->p_x] != '1')
 	{
-		if (ber->map[ber->P_y - 1][ber->P_x] == 'C')
+		if (ber->map[ber->p_y - 1][ber->p_x] == 'C')
 		{
 			mlx_put_image_to_window(ber->mlx.mlx, ber->mlx.mlx_win,
-				ber->floor.img, ber->P_x * 64, (ber->P_y - 1) * 64);
-			ber->C--;
+				ber->floor.img, ber->p_x * 64, (ber->p_y - 1) * 64);
+			ber->c--;
 		}
-		if (ber->map[ber->P_y - 1][ber->P_x] == 'E' && ber->C == 0)
+		if (ber->map[ber->p_y - 1][ber->p_x] == 'E' && ber->c == 0)
 			ft_win("YOU ARE WIN!)");
-		if (ber->map[ber->P_y - 1][ber->P_x] != 'E')
+		if (ber->map[ber->p_y - 1][ber->p_x] != 'E')
 		{
 			mlx_put_image_to_window(ber->mlx.mlx, ber->mlx.mlx_win,
-				ber->floor.img, ber->P_x * 64, ber->P_y * 64);
+				ber->floor.img, ber->p_x * 64, ber->p_y * 64);
 			mlx_put_image_to_window(ber->mlx.mlx, ber->mlx.mlx_win,
-				ber->up.img, ber->P_x * 64, (ber->P_y - 1) * 64);
-			ber->map[ber->P_y][ber->P_x] = '0';
-			ber->map[ber->P_y - 1][ber->P_x] = 'P';
-			ber->P_y--;
+				ber->up.img, ber->p_x * 64, (ber->p_y - 1) * 64);
+			ber->map[ber->p_y][ber->p_x] = '0';
+			ber->map[ber->p_y - 1][ber->p_x] = 'P';
+			ber->p_y--;
 			ber->moove++;
 			printf("Movements done %d\n", ber->moove);
 		}
@@ -47,25 +47,25 @@ void	ft_moove_w(t_ber *ber)
 
 void	ft_moove_a(t_ber *ber)
 {
-	if (ber->map[ber->P_y][ber->P_x - 1] != '1')
+	if (ber->map[ber->p_y][ber->p_x - 1] != '1')
 	{
-		if (ber->map[ber->P_y][ber->P_x - 1] == 'C')
+		if (ber->map[ber->p_y][ber->p_x - 1] == 'C')
 		{
 			mlx_put_image_to_window(ber->mlx.mlx, ber->mlx.mlx_win,
-				ber->floor.img, (ber->P_x - 1) * 64, ber->P_y * 64);
-			ber->C--;
+				ber->floor.img, (ber->p_x - 1) * 64, ber->p_y * 64);
+			ber->c--;
 		}
-		if (ber->map[ber->P_y][ber->P_x - 1] == 'E' && ber->C == 0)
+		if (ber->map[ber->p_y][ber->p_x - 1] == 'E' && ber->c == 0)
 			ft_win("YOU ARE WIN!)");
-		if (ber->map[ber->P_y][ber->P_x - 1] != 'E')
+		if (ber->map[ber->p_y][ber->p_x - 1] != 'E')
 		{
 			mlx_put_image_to_window(ber->mlx.mlx, ber->mlx.mlx_win,
-				ber->floor.img, ber->P_x * 64, ber->P_y * 64);
+				ber->floor.img, ber->p_x * 64, ber->p_y * 64);
 			mlx_put_image_to_window(ber->mlx.mlx, ber->mlx.mlx_win,
-				ber->left.img, (ber->P_x - 1) * 64, ber->P_y * 64);
-			ber->map[ber->P_y][ber->P_x] = '0';
-			ber->map[ber->P_y][ber->P_x - 1] = 'P';
-			ber->P_x--;
+				ber->left.img, (ber->p_x - 1) * 64, ber->p_y * 64);
+			ber->map[ber->p_y][ber->p_x] = '0';
+			ber->map[ber->p_y][ber->p_x - 1] = 'P';
+			ber->p_x--;
 			ber->moove++;
 			printf("Movements done %d\n", ber->moove);
 		}
@@ -74,25 +74,25 @@ void	ft_moove_a(t_ber *ber)
 
 void	ft_moove_s(t_ber *ber)
 {
-	if (ber->map[ber->P_y + 1][ber->P_x] != '1')
+	if (ber->map[ber->p_y + 1][ber->p_x] != '1')
 	{
-		if (ber->map[ber->P_y + 1][ber->P_x] == 'C')
+		if (ber->map[ber->p_y + 1][ber->p_x] == 'C')
 		{
 			mlx_put_image_to_window(ber->mlx.mlx, ber->mlx.mlx_win,
-				ber->floor.img, ber->P_x * 64, (ber->P_y + 1) * 64);
-			ber->C--;
+				ber->floor.img, ber->p_x * 64, (ber->p_y + 1) * 64);
+			ber->c--;
 		}
-		if (ber->map[ber->P_y + 1][ber->P_x] == 'E' && ber->C == 0)
+		if (ber->map[ber->p_y + 1][ber->p_x] == 'E' && ber->c == 0)
 			ft_win("YOU ARE WIN!)");
-		if (ber->map[ber->P_y + 1][ber->P_x] != 'E')
+		if (ber->map[ber->p_y + 1][ber->p_x] != 'E')
 		{
 			mlx_put_image_to_window(ber->mlx.mlx, ber->mlx.mlx_win,
-				ber->floor.img, ber->P_x * 64, ber->P_y * 64);
+				ber->floor.img, ber->p_x * 64, ber->p_y * 64);
 			mlx_put_image_to_window(ber->mlx.mlx, ber->mlx.mlx_win,
-				ber->down.img, ber->P_x * 64, (ber->P_y + 1) * 64);
-			ber->map[ber->P_y][ber->P_x] = '0';
-			ber->map[ber->P_y + 1][ber->P_x] = 'P';
-			ber->P_y++;
+				ber->down.img, ber->p_x * 64, (ber->p_y + 1) * 64);
+			ber->map[ber->p_y][ber->p_x] = '0';
+			ber->map[ber->p_y + 1][ber->p_x] = 'P';
+			ber->p_y++;
 			ber->moove++;
 			printf("Movements done %d\n", ber->moove);
 		}
@@ -101,25 +101,25 @@ void	ft_moove_s(t_ber *ber)
 
 void	ft_moove_d(t_ber *ber)
 {
-	if (ber->map[ber->P_y][ber->P_x + 1] != '1')
+	if (ber->map[ber->p_y][ber->p_x + 1] != '1')
 	{
-		if (ber->map[ber->P_y][ber->P_x + 1] == 'C')
+		if (ber->map[ber->p_y][ber->p_x + 1] == 'C')
 		{
 			mlx_put_image_to_window(ber->mlx.mlx, ber->mlx.mlx_win,
-				ber->floor.img, (ber->P_x + 1) * 64, ber->P_y * 64);
-			ber->C--;
+				ber->floor.img, (ber->p_x + 1) * 64, ber->p_y * 64);
+			ber->c--;
 		}
-		if (ber->map[ber->P_y][ber->P_x + 1] == 'E' && ber->C == 0)
+		if (ber->map[ber->p_y][ber->p_x + 1] == 'E' && ber->c == 0)
 			ft_win("YOU ARE WIN!)");
-		if (ber->map[ber->P_y][ber->P_x + 1] != 'E')
+		if (ber->map[ber->p_y][ber->p_x + 1] != 'E')
 		{
 			mlx_put_image_to_window(ber->mlx.mlx, ber->mlx.mlx_win,
-				ber->floor.img, ber->P_x * 64, ber->P_y * 64);
+				ber->floor.img, ber->p_x * 64, ber->p_y * 64);
 			mlx_put_image_to_window(ber->mlx.mlx, ber->mlx.mlx_win,
-				ber->right.img, (ber->P_x + 1) * 64, ber->P_y * 64);
-			ber->map[ber->P_y][ber->P_x] = '0';
-			ber->map[ber->P_y][ber->P_x + 1] = 'P';
-			ber->P_x++;
+				ber->right.img, (ber->p_x + 1) * 64, ber->p_y * 64);
+			ber->map[ber->p_y][ber->p_x] = '0';
+			ber->map[ber->p_y][ber->p_x + 1] = 'P';
+			ber->p_x++;
 			ber->moove++;
 			printf("Movements done %d\n", ber->moove);
 		}

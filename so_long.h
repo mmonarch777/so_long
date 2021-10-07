@@ -20,7 +20,6 @@
 typedef struct s_image
 {
 	void	*img;
-	char	*path;
 	int		image_w;
 	int		image_h;
 }	t_image;
